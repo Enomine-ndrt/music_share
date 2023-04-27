@@ -1,0 +1,7 @@
+tutorial
+
+https://blog.logrocket.com/building-audio-player-react/
+
+
+tutorial uber
+https://www.youtube.com/watch?v=zIwiQz8adoE

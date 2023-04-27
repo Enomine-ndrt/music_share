@@ -1,0 +1,22 @@
+.body{
+    margin: 0;
+    padding: 0;
+
+}
+
+.lienzo{
+    display: flex;
+    height: 90vh;
+    background: #c1b6bc;
+}
+
+.tarjeta{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.nombre{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

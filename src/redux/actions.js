@@ -72,7 +72,7 @@ export const getAllArtist = () =>{
 
         const API_URL = `http://localhost:8080/music_share/php-rest-api/api/artista/read.php`;
 
-        const results = await axios.get({method: 'GET',API_URL,config}).then(async function (response) {
+        const results = await axios.get({method: 'GET',url:API_URL,headers:config}).then(async function (response) {
             console.log('respoinse ',response);
             return response;
         }).catch(function(error){

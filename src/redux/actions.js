@@ -22,12 +22,9 @@ try{
     var temp = {};
     return async dispatch =>{
 
-
-
-
     const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
 
-    const results = await axios.get({API_URL,config}).then(async function (response) {
+    const results = await axios.get(API_URL,config).then(async function (response) {
         return response;
     }).catch(function(error){
         console.log("Ha ocurrido un error al traer albums "+error);

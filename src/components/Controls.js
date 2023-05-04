@@ -11,6 +11,7 @@ import{
 
 } from 'react-icons/io5';
 
+
 const Controls = ({
   audioRef,progressBarRef,duration,setTimeProgress,Album,setTrackIndex,trackIndex,handleNext
 }) => {
@@ -90,6 +91,7 @@ const Controls = ({
               <IoPlaySkipForwardSharp />
             </button>
         </div>
+
         <div className='volume'>
           <button>icons</button>
           <input type="range"
@@ -101,7 +103,9 @@ const Controls = ({
             background: `linear-gradient(to right, #f50 ${volume}%, #ccc ${volume}%)`,
           }}
           />
+
         </div>
+
     </div>
   );
 };

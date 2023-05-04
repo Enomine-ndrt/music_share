@@ -2,6 +2,8 @@
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
 
+
+
 const DisplayTrack = ({
   currentTack,audioRef,setDuration,progressBarRef,handleNext
 }) => {
@@ -63,6 +65,7 @@ const onLoadedMetadata = () => {
                 <p>Track: {numero_track}</p>
           </div>
       </div>
+
     </div>
   )
 }

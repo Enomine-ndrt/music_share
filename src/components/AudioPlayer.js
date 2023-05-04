@@ -66,7 +66,9 @@ const AudioPlayer = () => {
            duration={duration}
            />
         </div>
+
     </div>
+
     </>
   );
 }

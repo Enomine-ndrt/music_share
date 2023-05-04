@@ -12,7 +12,7 @@ try{
     let serverAlbumListArtist = [];
     var temp = {};
     return async dispatch =>{
-    const API_URL = `http://127.0.0.1:8080/music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
+    const API_URL = `http://localhost:8080/music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
     const results = await axios.get(API_URL).then(async function (response) {
         return response;
     }).catch(function(error){
@@ -62,7 +62,7 @@ export const getAllArtist = () =>{
                 }
             }
 
-        const API_URL = `http://127.0.0.1:8080/music_share/php-rest-api/api/artista/read.php`;
+        const API_URL = `http://localhost:8080/music_share/php-rest-api/api/artista/read.php`;
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
             return response;
@@ -115,7 +115,7 @@ export const getAllAlbumsArtist = (id) =>{
                 }
             }
 
-        const API_URL = `http://127.0.0.1:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
+        const API_URL = `http://localhost:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
             return response;

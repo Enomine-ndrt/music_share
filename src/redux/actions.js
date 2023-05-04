@@ -4,6 +4,15 @@ export const GET_SINGLE_ALBUM_ARTISTA = 'GET_SINGLE_ALBUM_ARTISTA';
 export const GET_ARTISTS = 'GET_ARTISTS';
 export const GET_ALL_ALBUMS_ARTIST = 'GET_ALL_ALBUMS_FROM_ARTIST';
 
+
+const config = {
+
+    headers: {
+        "content-type": "application/json",
+        'Access-Control-Allow-Headers': 'x-access-token'
+    }
+}
+
 /**
  * get a single album
  */
@@ -12,8 +21,13 @@ try{
     let serverAlbumListArtist = [];
     var temp = {};
     return async dispatch =>{
+
+
+
+
     const API_URL = `http://localhost:8080/music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
-    const results = await axios.get(API_URL).then(async function (response) {
+
+    const results = await axios.get({API_URL,config}).then(async function (response) {
         return response;
     }).catch(function(error){
         console.log("Ha ocurrido un error al traer albums "+error);
@@ -54,16 +68,11 @@ export const getAllArtist = () =>{
         var temp = {};
         return async dispatch =>{
 
-            const config = {
 
-                headers: {
-                    "content-type": "application/json",
-                    'Access-Control-Allow-Headers': 'x-access-token',
-                }
-            }
 
         const API_URL = `http://localhost:8080/music_share/php-rest-api/api/artista/read.php`;
-        const results = await axios.get(API_URL,config).then(async function (response) {
+
+        const results = await axios.get({method: 'GET',API_URL,config}).then(async function (response) {
             console.log('respoinse ',response);
             return response;
         }).catch(function(error){
@@ -106,16 +115,9 @@ export const getAllAlbumsArtist = (id) =>{
         let serverListArtist = [];
         var temp = {};
         return async dispatch =>{
-
-            const config = {
-
-                headers: {
-                    "content-type": "application/json",
-                    'Access-Control-Allow-Headers': 'x-access-token',
-                }
-            }
-
         const API_URL = `http://localhost:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
+
+
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
             return response;

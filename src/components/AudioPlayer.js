@@ -3,6 +3,7 @@ import React, { useState,useEffect,useRef} from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
+import Lista from './Lista';
 import { useSelector,useDispatch } from 'react-redux';
 import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
@@ -66,6 +67,11 @@ const AudioPlayer = () => {
            duration={duration}
            />
         </div>
+
+        <Lista
+          lista={Album}
+          currentTack={Album[trackIndex]}
+        />
 
     </div>
 

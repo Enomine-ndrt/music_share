@@ -1,4 +1,4 @@
-.body{
+.artistas{
     margin: 0;
     padding: 0;
 
@@ -6,12 +6,14 @@
 
 .lienzo{
     display: flex;
-    height: 90vh;
+    flex-wrap: wrap;
+    min-height: 93vh;
+    height: 100%;
     background: #c1b6bc;
 }
 
 .tarjeta{
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 10px;
 }
 
@@ -19,4 +21,5 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    text-shadow: #c1b6bc;
 }

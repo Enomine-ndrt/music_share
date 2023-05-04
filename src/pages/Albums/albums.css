@@ -1,4 +1,12 @@
-.body{
+.album{
     margin: 0;
     padding: 0;
+}
+
+.lienzoAlbum{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 93vh;
+    height: 100%;
+    background: #c1b6bc;
 }

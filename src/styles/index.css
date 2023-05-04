@@ -4,17 +4,20 @@
 
 body{
     font-family:sans-serif;
-    background: #f2f2f2;
-    margin:0 10px;
+    margin:0 0px;
 }
 
 .audio-player{
     background: #c1b6bc;
+    min-height: 100vh;
+    height: 100%;
+
 }
 .inner{
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background: rgba(75, 144, 224, 0.685);
 }
 
 /*audio info*/
@@ -130,4 +133,22 @@ button svg{
 
 .top__bar p{
     margin: 0;
+}
+
+.Lista{
+    max-width: 400px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.text2{
+    background-color: #333;
+    color: rgb(236, 236, 236);
+}
+
+.text3{
+    background: rgba(75, 144, 224, 0.685);
+    color: rgb(243, 236, 236);
+
 }

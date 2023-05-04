@@ -29,7 +29,7 @@ const Artist = () => {
 
 
   return (
-    <div className='body' >
+    <div className='artistas' >
      <Navbar />
      <div className='lienzo'>
     {

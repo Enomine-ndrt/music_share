@@ -31,9 +31,9 @@ const Albums = () => {
 
 
   return (
-    <div className='body' >
+    <div className='album' >
     <Navbar />
-    <div className='lienzo'>
+    <div className='lienzoAlbum'>
    {
      AllAlbumArtist.map((element,ind)=>{
 
@@ -41,16 +41,16 @@ const Albums = () => {
 
        return(
    <div className='tarjeta'>
-   <Card sx={{ maxWidth: 345 }} >
+   <Card sx={{ maxWidth: 350 }} >
      <CardActionArea onClick={(e)=>{handlerCard(object,ind)}}>
        <CardMedia
          component="img"
-         height="300"
+         height="200"
          image={object.imagen_album}
          alt="album"
        />
        <CardContent>
-         <Typography gutterBottom variant="h5" component="div">
+         <Typography gutterBottom variant="h7" component="div">
          <div className='nombre'>
            {object.nombre_album}
            </div>

@@ -16,7 +16,7 @@ var actual = '';
   return (
 
     <div className='Lista'>
-         <hr />
+
       {
          lista.map((song,ind)=>{
             const object = JSON.parse(song)

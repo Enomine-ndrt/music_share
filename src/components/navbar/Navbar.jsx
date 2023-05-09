@@ -9,6 +9,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import {Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { slide as Menu } from 'react-burger-menu'
 //import {useHref} from "react-router";
 
 
@@ -17,10 +18,19 @@ const Navbar = () => {
   let navigate = useNavigate();
 
   const handle = (e) =>{
-    //console.log('clickado');
     e.preventDefault();
     navigate('/');
   }
+
+const createArtist =(e) =>{
+  e.preventDefault();
+  navigate('/Register');
+}
+
+const createAlbum =(e) =>{
+  e.preventDefault();
+  navigate('/RegisterAlbum');
+}
 
   return (
     <div className='navbar'>
@@ -30,6 +40,7 @@ const Navbar = () => {
                <span onClick={(e)=>{handle(e)}} className="logo">Artistas</span>
 
           </div>
+
           <div className='search'>
             <input type='text' placeholder='search...'/>
             <SearchOutlinedIcon />
@@ -39,6 +50,12 @@ const Navbar = () => {
 
               <div className='item'>
                <FullscreenExitOutlinedIcon className='icon'/>
+               <Menu>
+
+                  <a onClick={(e)=>{createArtist(e)}} href="#">Registrar Artista</a>
+                  <a onClick={(e)=>{createAlbum(e)}} href="#">Registrar Album</a>
+
+                  </Menu>
               </div>
               <div className='item'>
                 <NotificationsNoneOutlinedIcon className='icon'/>
@@ -50,6 +67,7 @@ const Navbar = () => {
               </div>
               <div className='item'>
                   <ListOutlinedIcon className='icon'/>
+
               </div>
 
           </div>

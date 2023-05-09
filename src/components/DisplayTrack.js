@@ -1,11 +1,11 @@
 
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
-
+import Lista from './Lista';
 
 
 const DisplayTrack = ({
-  currentTack,audioRef,setDuration,progressBarRef,handleNext
+  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista
 }) => {
 //const [url, seturl] = useState();
 var url;
@@ -63,7 +63,13 @@ const onLoadedMetadata = () => {
                 <p>Artista: {artista}</p>
                 <p>Album: {nombre_album}</p>
                 <p>Track: {numero_track}</p>
+
           </div>
+
+          <Lista
+          lista={lista}
+          currentTack={currentTack}
+        />
       </div>
 
     </div>

@@ -3,7 +3,7 @@ import React, { useState,useEffect,useRef} from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
-import Lista from './Lista';
+
 import { useSelector,useDispatch } from 'react-redux';
 import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
@@ -27,10 +27,13 @@ const AudioPlayer = () => {
 
 
   const handleNext = () => {
-    console.log('handleNext ',Album);
+   // console.log('handleNext ',Album);
 
     if(trackIndex >= Album.length -1){
       setTrackIndex(0);
+      console.log('trackIndex');
+      //var inss = location.state.id_album+1;
+     // dispatch(getSingleAlbumFromArtist(location.state.id_artista,inss));
     }else{
       setTrackIndex((prev) => prev + 1);
     }
@@ -49,6 +52,7 @@ const AudioPlayer = () => {
               setDuration={setDuration}
               progressBarRef={progressBarRef}
               handleNext={handleNext}
+              lista={Album}
               />
           <Controls
           audioRef={audioRef}
@@ -68,10 +72,7 @@ const AudioPlayer = () => {
            />
         </div>
 
-        <Lista
-          lista={Album}
-          currentTack={Album[trackIndex]}
-        />
+
 
     </div>
 

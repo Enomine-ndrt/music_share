@@ -27,15 +27,15 @@ body{
 }
 
 .text{
-    color: #f50;
+    color: #fff;
 }
 
 .title{
     color: #fff;
     font-weight: 100;
-    font-size: 32px;
+    font-size: 22px;
     margin-bottom: 0;
-    padding: 2px;
+
     line-height: 37px;
     background-color: rgba(0,0,0,.8);
 }
@@ -49,8 +49,8 @@ body{
 }
 
 .audio-image{
-    width:300px;
-    height: 300px;
+    max-width:200px;
+    max-height: 200px;
     background: #1e1e1e ;
 }
 
@@ -114,7 +114,7 @@ button svg{
 }
 
 .time.current{
-    color: #f50;
+    color: #fff;
 }
 /*Top bar*/
 .top__bar{
@@ -136,10 +136,10 @@ button svg{
 }
 
 .Lista{
-    max-width: 400px;
-    margin: 0 auto;
 
-    text-align: center;
+    flex-wrap: wrap;
+    min-width: 100px;
+    margin: 0 auto;
 }
 
 .text2{
@@ -148,7 +148,15 @@ button svg{
 }
 
 .text3{
-    background: rgba(75, 144, 224, 0.685);
     color: rgb(243, 236, 236);
 
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+.textNav{
+    margin-top: 20px;
 }

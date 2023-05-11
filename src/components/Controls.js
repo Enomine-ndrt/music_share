@@ -7,7 +7,8 @@ import{
   IoPlaySkipBackSharp,
   IoPlaySkipForwardSharp,
   IoPlaySharp,
-  IoPauseSharp
+  IoPauseSharp,
+  IoVolumeLowSharp
 
 } from 'react-icons/io5';
 
@@ -75,25 +76,25 @@ const Controls = ({
   return (
     <div className='controls-wrapper'>
         <div className='controls'>
-            <button onClick={handlePrevius}>
+            <button  className='button-next' onClick={handlePrevius}>
                 <IoPlaySkipBackSharp />
             </button>
             <button onClick={skipBackward}>
               <IoPlayBackSharp />
             </button>
-            <button onClick={tooglePlayPause}>
+            <button className='button-play' onClick={tooglePlayPause}>
                 {isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
             </button>
-            <button onClick={skipForward}>
+            <button  onClick={skipForward}>
                <IoPlayForwardSharp />
             </button>
-            <button onClick={handleNext}>
+            <button className='button-next' onClick={handleNext}>
               <IoPlaySkipForwardSharp />
             </button>
         </div>
 
         <div className='volume'>
-          <button>icons</button>
+          <button><IoVolumeLowSharp /></button>
           <input type="range"
           min={0}
           max={100}

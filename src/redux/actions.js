@@ -10,7 +10,8 @@ const config = {
 
     headers: {
         "content-type": "application/json",
-        'Access-Control-Allow-Headers': 'x-access-token'
+        'Access-Control-Allow-Headers': 'x-access-token',
+
     }
 }
 
@@ -39,6 +40,7 @@ try{
         temp['nombre_album'] = song.nombre_album;
         temp['imagen_album'] = song.imagen_album;
         temp['numero_track'] = song.numero_track;
+
 
         var json = await JSON.stringify(temp);
         serverAlbumListArtist.push(json);
@@ -132,6 +134,9 @@ export const getAllAlbumsArtist = (id) =>{
             temp['nombre_album'] = al.nombre_album;
             temp['id_artista'] = al.id_artista;
             temp['imagen_album'] = al.imagen_album;
+            temp['nombre_artista'] = al.nombre_artista;
+            temp['avatar'] = al.avatar;
+            temp['banner'] = al.banner;
 
             var json = await JSON.stringify(temp);
             serverListArtist.push(json);

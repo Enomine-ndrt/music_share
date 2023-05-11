@@ -9,12 +9,17 @@
     flex-wrap: wrap;
     min-height: 93vh;
     height: 100%;
-    background: #c1b6bc;
+    background: #000000e5;
 }
 
 .tarjeta{
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.tarjeta :hover {
+    background-color: rgb(115, 113, 119);
+    color:aliceblue;
 }
 
 .nombre{

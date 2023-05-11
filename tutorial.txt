@@ -5,3 +5,6 @@ https://blog.logrocket.com/building-audio-player-react/
 
 tutorial uber
 https://www.youtube.com/watch?v=zIwiQz8adoE
+
+tutorial colors de imagen
+https://medium.com/@rocchokcoco/how-to-extract-image-theme-color-by-css-eb0d278c14d

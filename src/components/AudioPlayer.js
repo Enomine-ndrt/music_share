@@ -52,6 +52,7 @@ const AudioPlayer = () => {
               setDuration={setDuration}
               progressBarRef={progressBarRef}
               handleNext={handleNext}
+              setTrackIndex={setTrackIndex}
               lista={Album}
               />
           <Controls

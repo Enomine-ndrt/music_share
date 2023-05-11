@@ -6,7 +6,68 @@
 .lienzoAlbum{
     display: flex;
     flex-wrap: wrap;
-    min-height: 93vh;
+    min-height: 80vh;
     height: 100%;
-    background: #c1b6bc;
+    background: #000000f3;
+}
+
+.lienzoAlbum .centrar{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+ .lienzoAlbum .titleAlbum{
+    color: #fff;
+    background-color: black;
+
+
+}
+
+.profileRight{
+    background-color: black;
+
+}
+
+.profileCover{
+    height: 250px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.profileCover::after{
+    filter: blur(50px);
+}
+.profileCoverImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-self: center;
+}
+
+.profileUserImg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 150px;
+    border: 3px solid white;
+}
+
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.profileInfoName{
+    font-size: 24px;
+}
+.profileInfoDesc{
+    font-weight: 300;
 }

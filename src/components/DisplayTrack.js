@@ -5,7 +5,7 @@ import Lista from './Lista';
 
 
 const DisplayTrack = ({
-  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista
+  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista, setTrackIndex
 }) => {
 //const [url, seturl] = useState();
 var url;
@@ -69,6 +69,7 @@ const onLoadedMetadata = () => {
           <Lista
           lista={lista}
           currentTack={currentTack}
+          setTrackIndex={setTrackIndex}
         />
       </div>
 

@@ -41,15 +41,12 @@ const createAlbum =(e) =>{
 
           </div>
 
-          <div className='search'>
-            <input type='text' placeholder='search...'/>
-            <SearchOutlinedIcon />
-          </div>
+
           <div className='items'>
 
 
               <div className='item'>
-               <FullscreenExitOutlinedIcon className='icon'/>
+              <ListOutlinedIcon className='icon'/>
                <Menu>
 
                   <a onClick={(e)=>{createArtist(e)}} href="#">Registrar Artista</a>
@@ -57,18 +54,7 @@ const createAlbum =(e) =>{
 
                   </Menu>
               </div>
-              <div className='item'>
-                <NotificationsNoneOutlinedIcon className='icon'/>
-                <div className='counter'>1</div>
-              </div>
-              <div className='item'>
-                <ChatBubbleOutlineOutlinedIcon className='icon'/>
-                <div className='counter'>2</div>
-              </div>
-              <div className='item'>
-                  <ListOutlinedIcon className='icon'/>
 
-              </div>
 
           </div>
        </div>

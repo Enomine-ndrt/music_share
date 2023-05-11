@@ -1,4 +1,5 @@
 *{
+    margin: 0;
    box-sizing: border-box;
 }
 
@@ -8,16 +9,16 @@ body{
 }
 
 .audio-player{
-    background: #c1b6bc;
+    background: rgba(0, 0, 0, 0.918);
     min-height: 100vh;
     height: 100%;
 
 }
 .inner{
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(75, 144, 224, 0.685);
+    background: rgba(88, 89, 90, 0.76);
 }
 
 /*audio info*/
@@ -152,6 +153,12 @@ button svg{
 
 }
 
+.text3:hover{
+    background-color: #fff;
+    color: #000;
+
+}
+
 a{
     text-decoration: none;
     color: #fff;
@@ -160,3 +167,28 @@ a{
 .textNav{
     margin-top: 20px;
 }
+
+.controls-wrapper .button-play{
+
+    border-radius: 50%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
+            -4px -4px 10px rgba(255,255,255, 0.4),
+            inset -4px -4px 10px rgba(0,0,0,0.4),
+            inset  4px 4px 10px rgba(255,255,255,0.4);
+    border: none;
+    outline: none;
+    background-color: #fff;
+    font: 24px;
+    cursor: pointer;
+}
+
+.controls-wrapper .button-next{
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(77,148,59);
+    font-size: 18px;
+}
+
+

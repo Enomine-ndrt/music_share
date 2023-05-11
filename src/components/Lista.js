@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import {IoCaretForwardCircle}  from 'react-icons/io5';
 
 
-const Lista = ({lista,currentTack}) => {
+const Lista = ({lista,currentTack, setTrackIndex}) => {
 
 
 var actual = '';
@@ -12,6 +12,12 @@ var actual = '';
         const object = JSON.parse(currentTack);
           actual = object.nombre_cancion;
       }
+
+      const Handle = (e,i) => {
+        console.log('message ',i);
+        setTrackIndex(i-1);
+      }
+
 
   return (
 
@@ -27,12 +33,15 @@ var actual = '';
             actual == object.nombre_cancion ?(
 
             <div className='text2'>
+                {object.numero_track}
                 <IoCaretForwardCircle />
                 { object.nombre_cancion}
                 </div>
             ):(
-                <div className='text3'>
-                {object.nombre_cancion}
+
+                <div onClick={(e)=>{Handle(e,object.numero_track)}} className='text3'>
+                {object.numero_track+'  ' }
+                { object.nombre_cancion}
                 </div>
             )
 

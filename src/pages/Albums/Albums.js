@@ -9,7 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { average } from 'color.js'
+import { average } from 'color.js';
 import './albums.css';
 
 
@@ -23,49 +23,50 @@ const Albums = () => {
     let avatar = "";
     let nombre = "";
     let banner = "";
-
-
-    const [image, setImage] = useState('');
-    const [colors, setColors] = useState();
-    const [averageColor, setAverageColor] = useState('#fff');
-
-
+    let colorBanner = "";
 
     useEffect(() => {
-           dispatch(getAllAlbumsArtist(album.state.data));
-    }, [])
+      dispatch(getAllAlbumsArtist(album.state.data));
+}, []);
+
 
     const handlerCard =(object,ind) =>{
-
-
        navigate("/player",{state:{id_artista:object.id_artista,id_album: object.id_album}});
     }
 
 
-    AllAlbumArtist.map((element,ind)=>{
+    AllAlbumArtist.map(async(element,ind)=>{
 
       var object = JSON.parse(element);
-
         avatar = object.avatar;
         nombre = object.nombre_artista;
         banner = object.banner;
+        colorBanner = object.colorBanner;
 
     });
-    console.log('banner ',banner);
 
-   // const ima = banner;
-    average(banner).then(color => console.log(color));
 
+  //average(banner, { format: 'hex' }).then(color =>console.log('COLORES ',color) );
 
 
   return (
     <div className='album' >
     <Navbar />
-    <div className="profileRight">
+    <div
+      style={{backgroundColor: colorBanner}}
+    className="profileRight">
     <div className="profileRightTop">
-    <div className="profileCover">
-      <img id='banner' className="profileCoverImg" src={banner} alt="" />
-      <img className="profileUserImg" src={avatar} alt="" />
+    <div
+
+    className="profileCover">
+      <img
+      id='banner'
+       className="profileCoverImg"
+       src={banner} alt="" />
+      <img
+      style={{border: `3px solid ${colorBanner}`}}
+      className="profileUserImg"
+      src={avatar} alt="" />
     </div>
           <div className="profileInfo">
                     <h4 className="profileInfoName">{nombre}</h4>

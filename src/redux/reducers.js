@@ -3,7 +3,8 @@ import {
     GET_ARTISTS,
     GET_ALL_ALBUMS_ARTIST,
     REGISTER_NEW_ARTIST,
-    REGISTER_NEW_ALBUM
+    REGISTER_NEW_ALBUM,
+
 } from "./actions";
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
     Artist: [],
     AllAlbumArtist: [],
     Message: [],
-    MessageAlbum: []
+    MessageAlbum: [],
+
 }
 
 function userReducer(state = initialState,action){

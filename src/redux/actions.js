@@ -1,10 +1,13 @@
+/* eslint-disable no-unreachable */
 import axios from "axios";
+import { average } from 'color.js';
 
 export const GET_SINGLE_ALBUM_ARTISTA = 'GET_SINGLE_ALBUM_ARTISTA';
 export const GET_ARTISTS = 'GET_ARTISTS';
 export const GET_ALL_ALBUMS_ARTIST = 'GET_ALL_ALBUMS_FROM_ARTIST';
 export const REGISTER_NEW_ARTIST = 'REGISTER_NEW_ARTIST';
 export const REGISTER_NEW_ALBUM = 'REGISTER_NEW_ALBUM';
+export const GET_COLOR_IMAGE = 'GET_COLOR_IMAGE';
 
 const config = {
 
@@ -116,8 +119,6 @@ export const getAllAlbumsArtist = (id) =>{
         var temp = {};
         return async dispatch =>{
         const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
-
-
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
             return response;
@@ -130,6 +131,8 @@ export const getAllAlbumsArtist = (id) =>{
 
         await results.data.body.map(async(al)=>{
 
+
+
             temp['id_album'] = al.id_album;
             temp['nombre_album'] = al.nombre_album;
             temp['id_artista'] = al.id_artista;
@@ -137,6 +140,9 @@ export const getAllAlbumsArtist = (id) =>{
             temp['nombre_artista'] = al.nombre_artista;
             temp['avatar'] = al.avatar;
             temp['banner'] = al.banner;
+            temp['colorBanner'] = al.colorBanner;
+
+
 
             var json = await JSON.stringify(temp);
             serverListArtist.push(json);
@@ -249,3 +255,5 @@ export const registerNewAlbum = (nombre_album,id_artista,imagen_album) => {
         console.log('Ha ocurrido un error al registrar album '+error.message);
     }
 }
+
+

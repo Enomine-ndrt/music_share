@@ -79,13 +79,13 @@ const Controls = ({
             <button  className='button-next' onClick={handlePrevius}>
                 <IoPlaySkipBackSharp />
             </button>
-            <button onClick={skipBackward}>
+            <button  className='button-next'  onClick={skipBackward}>
               <IoPlayBackSharp />
             </button>
             <button className='button-play' onClick={tooglePlayPause}>
                 {isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
             </button>
-            <button  onClick={skipForward}>
+            <button   className='button-next' onClick={skipForward}>
                <IoPlayForwardSharp />
             </button>
             <button className='button-next' onClick={handleNext}>
@@ -94,7 +94,7 @@ const Controls = ({
         </div>
 
         <div className='volume'>
-          <button><IoVolumeLowSharp /></button>
+          <button><IoVolumeLowSharp className='button-next'  /></button>
           <input type="range"
           min={0}
           max={100}

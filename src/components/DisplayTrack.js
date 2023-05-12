@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
-import Lista from './Lista';
+
 
 
 const DisplayTrack = ({
@@ -59,18 +59,16 @@ const onLoadedMetadata = () => {
           )}
           </div>
           <div className='text'>
-                <p className='title'>{nombre_cancion}</p>
-                <p>Artista: {artista}</p>
-                <p>Album: {nombre_album}</p>
+
+                <p>Album</p>
+                <p className='title'>{nombre_album}</p>
+                <p className='info'>{artista}</p>
+                <p className='info'>{nombre_cancion}</p>
                 <p>Track: {numero_track}</p>
 
           </div>
 
-          <Lista
-          lista={lista}
-          currentTack={currentTack}
-          setTrackIndex={setTrackIndex}
-        />
+
       </div>
 
     </div>

@@ -64,7 +64,7 @@ const Albums = () => {
        className="profileCoverImg"
        src={banner} alt="" />
       <img
-      style={{border: `3px solid ${colorBanner}`}}
+      style={{border: `3px solid #fff`}}
       className="profileUserImg"
       src={avatar} alt="" />
     </div>
@@ -108,7 +108,6 @@ const Albums = () => {
        )
      })
    }
-
    </div>
    </div>
    </div>

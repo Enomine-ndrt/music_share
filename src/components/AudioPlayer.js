@@ -8,6 +8,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
+import Lista from './Lista';
 
 
 const AudioPlayer = () => {
@@ -55,7 +56,14 @@ const AudioPlayer = () => {
               setTrackIndex={setTrackIndex}
               lista={Album}
               />
-          <Controls
+    </div>
+
+    <Lista
+          lista={Album}
+          currentTack={Album[trackIndex]}
+          setTrackIndex={setTrackIndex}
+        />
+    <Controls
           audioRef={audioRef}
           progressBarRef={progressBarRef}
           duration={duration}
@@ -75,7 +83,6 @@ const AudioPlayer = () => {
 
 
 
-    </div>
 
     </>
   );

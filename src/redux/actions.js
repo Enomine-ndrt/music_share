@@ -43,6 +43,7 @@ try{
         temp['nombre_album'] = song.nombre_album;
         temp['imagen_album'] = song.imagen_album;
         temp['numero_track'] = song.numero_track;
+        temp['colorAlbum'] = song.colorAlbum;
 
 
         var json = await JSON.stringify(temp);

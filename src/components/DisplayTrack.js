@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
-
+import { average } from 'color.js';
 
 
 const DisplayTrack = ({
@@ -36,6 +36,8 @@ const onLoadedMetadata = () => {
       numero_track = object.numero_track;
 
   }
+
+//average(imagen, { format: 'hex' }).then(color =>console.log('COLORES ALBUM ',color) );
 
   return (
     <div>

@@ -3,12 +3,12 @@ import React, { useState,useEffect,useRef} from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
-
 import { useSelector,useDispatch } from 'react-redux';
 import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Lista from './Lista';
+
 
 
 const AudioPlayer = () => {
@@ -25,6 +25,13 @@ const AudioPlayer = () => {
   useEffect(()=>{
     dispatch(getSingleAlbumFromArtist(location.state.id_artista,location.state.id_album));
   },[]);
+
+  let colorA = '';
+  Album.map((color)=> {
+    var object = JSON.parse(color);
+    colorA = object.colorAlbum;
+    //console.log('color album ',object.colorAlbum);
+  });
 
 
   const handleNext = () => {
@@ -46,7 +53,7 @@ const AudioPlayer = () => {
       <Navbar />
     <div className='audio-player'>
 
-        <div className='inner'>
+        <div style={{background: `linear-gradient(${colorA},black)`}} className='inner'>
               <DisplayTrack
               currentTack={Album[trackIndex]}
               audioRef={audioRef}

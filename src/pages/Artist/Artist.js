@@ -39,7 +39,7 @@ const Artist = () => {
 
         return(
     <div className='tarjeta'>
-    <Card sx={{ maxWidth: 345 }} >
+    <Card  sx={{ maxWidth: 345 }} >
       <CardActionArea  onClick={(e)=>{handlerCard(object,ind)}}>
         <CardMedia
           component="img"

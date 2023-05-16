@@ -39,8 +39,10 @@ const RegisterAlbum = () => {
       <div className='lienzo'>
             <div className='formulario'>
                 <h3>Registrar Album</h3><br/>
+                <div className='nombreAlbum'>
                 Nombre album <br/>
                 <input type="text" ref={nombre_album} placeholder='nombre album' /><br/>
+                </div>
                 <select value={select} onChange={e=> setSelect(e.target.value)} >
                     {
                         Artist.map((artista)=>{
@@ -53,9 +55,12 @@ const RegisterAlbum = () => {
                         })
                     }
                 </select><br />
+                <div className='imagen'>
                 <input type="text" ref={imagen_album} placeholder='imagen album' /><br/>
+                </div>
+                <div className='button'>
                 <button onClick={registrarAlbum}  value='registrar' >Registrar</button>
-
+                </div>
             </div>
       </div>
     </div>

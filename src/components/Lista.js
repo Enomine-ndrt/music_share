@@ -60,17 +60,17 @@ var actual = '';
            const object = JSON.parse(row)
             return(
               actual == object.nombre_cancion ?(
-          <TableRow  sx={{backgroundColor: '#BFC9CA' }} >
-            <TableCell sx={{color:'#fff'}} component="th" scope="row">
+          <TableRow  sx={{backgroundColor: '#2d2525' }} >
+            <TableCell sx={{color:'#00ff7f'}} component="th" scope="row">
               {object.numero_track}
             </TableCell>
-            <TableCell sx={{color:'#fff'}} align="left">{object.nombre_cancion}</TableCell>
+            <TableCell sx={{color:'#00ff7f'}} align="left">{object.nombre_cancion}</TableCell>
           </TableRow>
               ):(
                 <TableRow
                 className='ROWS'
                 onClick={(e)=>{Handle(e,object.numero_track)}}
-                sx={{backgroundColor: '#839192 ', cursor: 'pointer'}}
+                sx={{backgroundColor: '#000 ', cursor: 'pointer'}}
                 >
                 <TableCell sx={{color:'#fff'}}  component="th" scope="row">
                   {object.numero_track}

@@ -14,7 +14,6 @@ const config = {
     headers: {
         "content-type": "application/json",
         'Access-Control-Allow-Headers': 'x-access-token',
-
     }
 }
 
@@ -116,8 +115,7 @@ export const getAllArtist = () =>{
  */
 export const getAllAlbumsArtist = (id) =>{
     try{
-        let serverListArtist = [];
-        var temp = {};
+
         return async dispatch =>{
         const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
         const results = await axios.get(API_URL,config).then(async function (response) {
@@ -127,34 +125,11 @@ export const getAllAlbumsArtist = (id) =>{
             console.log("Ha ocurrido un error al traer artistas "+error);
         });
 
-        console.log('response ',results);
-
-
-        await results.data.body.map(async(al)=>{
-
-
-
-            temp['id_album'] = al.id_album;
-            temp['nombre_album'] = al.nombre_album;
-            temp['id_artista'] = al.id_artista;
-            temp['imagen_album'] = al.imagen_album;
-            temp['nombre_artista'] = al.nombre_artista;
-            temp['avatar'] = al.avatar;
-            temp['banner'] = al.banner;
-            temp['colorBanner'] = al.colorBanner;
-
-
-
-            var json = await JSON.stringify(temp);
-            serverListArtist.push(json);
-            return serverListArtist;
-        });
-
-
+      //  console.log('response ',results);
 
         await dispatch({
             type: GET_ALL_ALBUMS_ARTIST,
-            payload: serverListArtist
+            payload: results.data
         });
 
         }

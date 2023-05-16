@@ -28,3 +28,11 @@
     text-align: center;
     text-shadow: #c1b6bc;
 }
+
+
+@media (max-width: 500px) and (min-width: 280px) {
+        .tarjeta{
+            width: 100%;
+            padding: 10%;
+        }
+    }

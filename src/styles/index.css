@@ -225,8 +225,8 @@ a{
 
 @media (max-width: 500px) and (min-width: 280px) {
     .audio-info{ display:block; }
-    .inner{ max-width: 90%;}
-    .table{width: 90%;}
+    .inner{ max-width: 100%;}
+    .table{width: 100%;}
     .title{ margin-top: 5px;}
     }
 

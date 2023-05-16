@@ -27,9 +27,10 @@ const Register = () => {
       <Navbar />
        <div className='lienzo'>
             <div className='formulario'>
-            <h3>Ingresar Artista</h3>
-            Nombre artista<br />
+            <label className='titles'><h3>Ingresar Artista</h3></label>
+            <label>Nombre artista</label><br />
             <input
+
             type='text'
             name="nombre_artista"
             ref={nombre_artista}
@@ -43,8 +44,10 @@ const Register = () => {
             placeholder='imagen artista'
             />
             <br/>
+
             <div className='button'>
             <button onClick={registrar}  value='registrar' >Registrar</button>
+
             </div>
             </div>
 

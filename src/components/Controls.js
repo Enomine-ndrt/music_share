@@ -22,6 +22,7 @@ const Controls = ({
 
   const repeat = useCallback(() =>{
     console.log('run');
+    if(audioRef.current?.currentTime != null){
     const currentTime = audioRef.current.currentTime;
     setTimeProgress(currentTime);
     progressBarRef.current.value = currentTime;
@@ -30,6 +31,7 @@ const Controls = ({
       `${(progressBarRef.current.value / duration) * 100}%`
     );
     playAnimationRef.current = requestAnimationFrame(repeat);
+  }
   },[audioRef,duration,progressBarRef,setTimeProgress]);
 
 

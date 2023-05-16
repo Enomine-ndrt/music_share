@@ -34,19 +34,56 @@ const Albums = () => {
        navigate("/player",{state:{id_artista:object.id_artista,id_album: object.id_album}});
     }
 
-
-    AllAlbumArtist.map(async(element,ind)=>{
-
-      var object = JSON.parse(element);
-        avatar = object.avatar;
-        nombre = object.nombre_artista;
-        banner = object.banner;
-        colorBanner = object.colorBanner;
-
-    });
-
+    if(AllAlbumArtist.header != null){
+      nombre = AllAlbumArtist.header[0].nombre_artista;
+      avatar = AllAlbumArtist.header[0].avatar;
+      banner  = AllAlbumArtist.header[0].banner;
+      colorBanner = AllAlbumArtist.header[0].colorBanner;
+    }
 
   //average(banner, { format: 'hex' }).then(color =>console.log('COLORES ',color) );
+
+  const GetAlbums = () =>{
+
+    if(AllAlbumArtist.body != null){
+
+
+    return(
+
+      <>
+      {
+         AllAlbumArtist.body.map((al,ind)=>{
+          return(
+      <div className='tarjeta'>
+      <Card sx={{ maxWidth: 350 }} >
+        <CardActionArea  onClick={(e)=>{handlerCard(al,ind)}}>
+          <CardMedia
+            component="img"
+            height="200"
+            image={al.imagen_album}
+            alt="album"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h7" component="div">
+            <div className='nombre'>
+              {al.nombre_album}
+              </div>
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      </div>
+          )
+    })
+      }
+    </>
+    );
+
+    }else{
+      return(<h1>No albums</h1>)
+    }
+
+  }
 
 
   return (
@@ -78,36 +115,7 @@ const Albums = () => {
     <div className='lienzoAlbum'>
 
       <div className='centrar' >
-
-
-   {
-     AllAlbumArtist.map((element,ind)=>{
-
-       var object = JSON.parse(element);
-
-       return(
-   <div className='tarjeta'>
-   <Card sx={{ maxWidth: 350 }} >
-     <CardActionArea onClick={(e)=>{handlerCard(object,ind)}}>
-       <CardMedia
-         component="img"
-         height="200"
-         image={object.imagen_album}
-         alt="album"
-       />
-       <CardContent>
-         <Typography gutterBottom variant="h7" component="div">
-         <div className='nombre'>
-           {object.nombre_album}
-           </div>
-         </Typography>
-       </CardContent>
-     </CardActionArea>
-   </Card>
-   </div>
-       )
-     })
-   }
+   <GetAlbums />
    </div>
    </div>
    </div>

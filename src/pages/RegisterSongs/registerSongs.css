@@ -1,0 +1,18 @@
+.formulario{
+
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #fff;
+    height: 60%;
+    width: 40%;
+  }
+
+  .formulario , .title{
+    margin-top: 5%;
+    text-align: center;
+
+  }
+  .formulario , .button{
+    margin-top: 5%;
+  }

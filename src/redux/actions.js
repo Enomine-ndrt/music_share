@@ -1,6 +1,5 @@
 /* eslint-disable no-unreachable */
 import axios from "axios";
-import { average } from 'color.js';
 
 export const GET_SINGLE_ALBUM_ARTISTA = 'GET_SINGLE_ALBUM_ARTISTA';
 export const GET_ARTISTS = 'GET_ARTISTS';
@@ -8,6 +7,7 @@ export const GET_ALL_ALBUMS_ARTIST = 'GET_ALL_ALBUMS_FROM_ARTIST';
 export const REGISTER_NEW_ARTIST = 'REGISTER_NEW_ARTIST';
 export const REGISTER_NEW_ALBUM = 'REGISTER_NEW_ALBUM';
 export const GET_COLOR_IMAGE = 'GET_COLOR_IMAGE';
+export const REGISTER_A_SONGS = 'REGISTER_A_SONGS';
 
 const config = {
 
@@ -16,6 +16,8 @@ const config = {
         'Access-Control-Allow-Headers': 'x-access-token',
     }
 }
+
+const BASE_URL = 'http://192.168.1.132:8080/';
 
 /**
  * get a single album
@@ -26,7 +28,7 @@ try{
     var temp = {};
     return async dispatch =>{
 
-    const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
+    const API_URL = BASE_URL+`music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
 
     const results = await axios.get(API_URL,config).then(async function (response) {
         return response;
@@ -70,10 +72,7 @@ export const getAllArtist = () =>{
         let serverListArtist = [];
         var temp = {};
         return async dispatch =>{
-
-
-
-        const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/artista/read.php`;
+        const API_URL = BASE_URL+`music_share/php-rest-api/api/artista/read.php`;
 
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
@@ -117,7 +116,7 @@ export const getAllAlbumsArtist = (id) =>{
     try{
 
         return async dispatch =>{
-        const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
+        const API_URL = BASE_URL+`music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
         const results = await axios.get(API_URL,config).then(async function (response) {
             console.log('respoinse ',response);
             return response;
@@ -142,18 +141,19 @@ export const getAllAlbumsArtist = (id) =>{
 /**
  * Register a new artist
  */
-export const registerNewArtist = (nombre_artista,imagen_artista) => {
+export const registerNewArtist = (nombre_artista,imagen_artista, banner, avatar, colorBanner) => {
     try{
 
         let serverListArtist = [];
         var temp = {};
         return async dispatch =>{
-        const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/artista/create.php`;
-
-
+        const API_URL = BASE_URL+`music_share/php-rest-api/api/artista/create.php`;
         const results = await axios.post(API_URL,{
             "nombre_artista":nombre_artista,
-            "imagen_artista":imagen_artista
+            "imagen_artista":imagen_artista,
+            "banner": banner,
+            "avatar": avatar,
+            "colorBanner": colorBanner,
         },config).then(async function (response) {
             console.log('respoinse ',response);
             return response;
@@ -180,6 +180,7 @@ export const registerNewArtist = (nombre_artista,imagen_artista) => {
         });
 
         }
+
     }catch(e){
     console.log('Ha ocurrido un error al registrar artista '+e.message);
     }
@@ -188,19 +189,20 @@ export const registerNewArtist = (nombre_artista,imagen_artista) => {
 /**
  * Register a new Album
  */
-export const registerNewAlbum = (nombre_album,id_artista,imagen_album) => {
+export const registerNewAlbum = (nombre_album,id_artista,imagen_album, colorAlbum) => {
     try{
 
         let serverListArtist = [];
         var temp = {};
         return async dispatch =>{
-        const API_URL = `http://192.168.1.131:8080/music_share/php-rest-api/api/album/create.php`;
+        const API_URL = BASE_URL+`music_share/php-rest-api/api/album/create.php`;
 
 
         const results = await axios.post(API_URL,{
             "nombre_album":nombre_album,
             "id_artista":id_artista,
-            "imagen_album":imagen_album
+            "imagen_album":imagen_album,
+            "color_album":colorAlbum
         },config).then(async function (response) {
             console.log('response ',response);
             return response;
@@ -219,8 +221,6 @@ export const registerNewAlbum = (nombre_album,id_artista,imagen_album) => {
             return serverListArtist;
         });
 
-
-
         await dispatch({
             type: REGISTER_NEW_ALBUM,
             payload: serverListArtist
@@ -231,5 +231,34 @@ export const registerNewAlbum = (nombre_album,id_artista,imagen_album) => {
         console.log('Ha ocurrido un error al registrar album '+error.message);
     }
 }
+/**
+ * Register a songs in album
+ */
+export const registerSongs = (id_artista,id_album,file,direccion) =>{
+    try{
+        return async dispatch =>{
+            const API_URL = BASE_URL+`music_share/php-rest-api/api/cancion/create.php`;
+            const results = await axios.post(API_URL,{
+                "id_artista":id_artista,
+                "id_album":id_album,
+                "file":file,
+                "direccion":direccion
+            },config).then(async function (response) {
+                console.log('response ',response);
+                return response;
+            }).catch(function(error){
+                console.log("Ha ocurrido un error al registrar album "+error);
+            });
 
+            console.log('response ',results);
+            await dispatch({
+                type: REGISTER_NEW_ALBUM,
+                payload: results
+            });
+
+            }
+    }catch(error){
+    console.log('Ha ocurrido un error al registrar',error.message);
+    }
+}
 

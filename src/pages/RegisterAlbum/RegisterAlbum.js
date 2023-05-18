@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {getAllArtist,registerNewAlbum} from "../../redux/actions";
 import './regsiterAlbum.css';
 import { useNavigate } from "react-router-dom";
+import { getColorImage} from '../utils/Utils';
 
 const RegisterAlbum = () => {
     const {Artist,MessageAlbum} = useSelector(state => state.userReducer);
@@ -19,14 +20,16 @@ const RegisterAlbum = () => {
         dispatch(getAllArtist());
     },[]);
 
-    console.log('artistas ',Artist);
 
     const registrarAlbum = async() => {
 
         console.log('nombre_album',nombre_album.current.value);
         console.log('id_artista',select);
         console.log('imagen_album',imagen_album.current.value);
-        dispatch(registerNewAlbum(nombre_album.current.value,select,imagen_album.current.value));
+        const color = await getColorImage(imagen_album.current.value);
+        console.log('colorAlbum ',color);
+
+        dispatch(registerNewAlbum(nombre_album.current.value,select,imagen_album.current.value,color));
         navigate('/');
 
     }

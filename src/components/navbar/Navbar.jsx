@@ -32,6 +32,11 @@ const createAlbum =(e) =>{
   navigate('/RegisterAlbum');
 }
 
+const insertSongs =(e) =>{
+  e.preventDefault();
+  navigate('/RegisterSongs');
+}
+
   return (
     <div className='navbar'>
        <div className='wrapper'>
@@ -51,6 +56,7 @@ const createAlbum =(e) =>{
 
                   <a onClick={(e)=>{createArtist(e)}} href="#">Registrar Artista</a>
                   <a onClick={(e)=>{createAlbum(e)}} href="#">Registrar Album</a>
+                  <a onClick={(e)=>{insertSongs(e)}} href="#">Registrar Songs</a>
 
                   </Menu>
               </div>

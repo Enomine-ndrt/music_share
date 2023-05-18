@@ -9,6 +9,7 @@ import Artist from './pages/Artist/Artist';
 import Albums from './pages/Albums/Albums';
 import Register from './pages/RegisterArtist/Register';
 import RegisterAlbum from './pages/RegisterAlbum/RegisterAlbum';
+import RegisterSongs from './pages/RegisterSongs/RegisterSongs';
 import  {Provider} from "react-redux";
 import  {Store} from "./redux/store";
 
@@ -23,6 +24,7 @@ import  {Store} from "./redux/store";
                 <Route exact path="/player" element={<AudioPlayer />} />
                 <Route exact path="/Register" element={<Register />} />
                 <Route exact path="/RegisterAlbum" element={<RegisterAlbum />} />
+                <Route exact path="/RegisterSongs" element={<RegisterSongs />} />
             </Routes>
         </Provider>
   </Router>

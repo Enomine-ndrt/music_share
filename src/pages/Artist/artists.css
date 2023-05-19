@@ -5,16 +5,22 @@
 }
 
 .lienzo{
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     min-height: 93vh;
     height: 100%;
     background: #000000e5;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjeta{
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 10px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjeta :hover {

@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useRef} from 'react';
+import React,{useEffect,useState,useRef,useMemo} from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import {useLocation} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
@@ -27,6 +27,7 @@ const Albums = () => {
 
     useEffect(() => {
       dispatch(getAllAlbumsArtist(album.state.data));
+
 }, []);
 
 
@@ -34,7 +35,15 @@ const Albums = () => {
        navigate("/player",{state:{id_artista:object.id_artista,id_album: object.id_album}});
     }
 
-    if(AllAlbumArtist.header != null){
+    let  Songs = useMemo(()=>[
+      AllAlbumArtist.body,
+    ],[]);
+
+    let header = useMemo(()=>[
+      AllAlbumArtist.header
+    ],[]);
+
+    if(  AllAlbumArtist.header != null){
       nombre = AllAlbumArtist.header[0].nombre_artista;
       avatar = AllAlbumArtist.header[0].avatar;
       banner  = AllAlbumArtist.header[0].banner;
@@ -42,20 +51,19 @@ const Albums = () => {
     }
 
   //average(banner, { format: 'hex' }).then(color =>console.log('COLORES ',color) );
+  console.log('header ',header);
 
   const GetAlbums = () =>{
 
-    if(AllAlbumArtist.body != null){
-
+    if( AllAlbumArtist.body != null){
 
     return(
-
       <>
       {
          AllAlbumArtist.body.map((al,ind)=>{
           return(
       <div className='tarjeta'>
-      <Card sx={{ maxWidth: 350 }} >
+      <Card sx={{ maxWidth: 250 }} >
         <CardActionArea  onClick={(e)=>{handlerCard(al,ind)}}>
           <CardMedia
             component="img"
@@ -74,16 +82,16 @@ const Albums = () => {
       </Card>
       </div>
           )
+
     })
       }
     </>
     );
-
     }else{
       return(<h1>No albums</h1>)
     }
 
-  }
+  };
 
 
   return (
@@ -112,10 +120,10 @@ const Albums = () => {
     </div>
     </div>
 
-    <div className='lienzoAlbum'>
+    <div style={{background: `linear-gradient(${colorBanner},black)`}} className='lienzoAlbum'>
 
       <div className='centrar' >
-   <GetAlbums />
+  { <GetAlbums /> }
    </div>
    </div>
    </div>

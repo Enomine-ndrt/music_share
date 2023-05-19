@@ -19,6 +19,10 @@
         .nombre{
             .logo{
                 font-size: 26px;
+                cursor: pointer;
+            }
+            .logo:hover{
+                color:#a59aa8;
             }
         }
 

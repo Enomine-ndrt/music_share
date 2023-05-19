@@ -71,3 +71,8 @@
 .profileInfoDesc{
     font-weight: 300;
 }
+
+.centrar{
+    justify-content: center;
+
+}

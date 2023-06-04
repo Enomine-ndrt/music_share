@@ -17,7 +17,7 @@ const config = {
     }
 }
 
-const BASE_URL = 'http://192.168.1.132:8080/';
+const BASE_URL = 'http://192.168.1.131:8080/';
 
 /**
  * get a single album

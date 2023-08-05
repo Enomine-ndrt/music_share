@@ -8,6 +8,7 @@ import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Lista from './Lista';
+import Lista_albums from './Lista_albums';
 
 
 
@@ -33,6 +34,7 @@ const AudioPlayer = () => {
     //console.log('color album ',object.colorAlbum);
   });
 
+  console.log('Album ', Album);
 
   const handleNext = () => {
    // console.log('handleNext ',Album);
@@ -70,6 +72,8 @@ const AudioPlayer = () => {
           currentTack={Album[trackIndex]}
           setTrackIndex={setTrackIndex}
         />
+    <Lista_albums />
+
     <Controls
           audioRef={audioRef}
           progressBarRef={progressBarRef}

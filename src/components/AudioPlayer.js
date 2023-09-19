@@ -8,6 +8,7 @@ import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Lista from './Lista';
+
 import Lista_albums from './Lista_albums';
 
 
@@ -25,7 +26,7 @@ const AudioPlayer = () => {
 
   useEffect(()=>{
     dispatch(getSingleAlbumFromArtist(location.state.id_artista,location.state.id_album));
-  },[]);
+  },[location]);
 
   let colorA = '';
   Album.map((color)=> {
@@ -34,7 +35,7 @@ const AudioPlayer = () => {
     //console.log('color album ',object.colorAlbum);
   });
 
-  console.log('Album ', Album);
+ // console.log('Album ', Album);
 
   const handleNext = () => {
    // console.log('handleNext ',Album);
@@ -55,6 +56,7 @@ const AudioPlayer = () => {
       <Navbar />
     <div className='audio-player'>
 
+
         <div style={{background: `linear-gradient(${colorA},black)`}} className='inner'>
               <DisplayTrack
               currentTack={Album[trackIndex]}
@@ -66,13 +68,15 @@ const AudioPlayer = () => {
               lista={Album}
               />
     </div>
-
+    <Lista_albums
+      colorAlbum={colorA}
+    />
     <Lista
           lista={Album}
           currentTack={Album[trackIndex]}
           setTrackIndex={setTrackIndex}
         />
-    <Lista_albums />
+
 
     <Controls
           audioRef={audioRef}

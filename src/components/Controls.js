@@ -21,9 +21,9 @@ const Controls = ({
   const [volume,setVolume] = useState(60);
 
   const repeat = useCallback(() =>{
-    console.log('run');
+   // console.log('run');
     if(audioRef.current?.currentTime != null){
-    const currentTime = audioRef.current.currentTime;
+    const currentTime = audioRef.current?.currentTime;
     setTimeProgress(currentTime);
     progressBarRef.current.value = currentTime;
     progressBarRef.current.style.setProperty(
@@ -32,7 +32,7 @@ const Controls = ({
     );
     playAnimationRef.current = requestAnimationFrame(repeat);
   }
-  },[audioRef,duration,progressBarRef,setTimeProgress]);
+  },[audioRef,duration,progressBarRef,setTimeProgress,playAnimationRef]);
 
 
   useEffect(() => {

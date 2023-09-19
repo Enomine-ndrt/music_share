@@ -23,6 +23,20 @@
     align-items: center;
 }
 
+
+.tarjeta1{
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 300px;
+    justify-content: center;
+
+}
+
+.tarjeta1 :hover {
+    background-color: rgb(115, 113, 119);
+    color:aliceblue;
+}
+
 .tarjeta :hover {
     background-color: rgb(115, 113, 119);
     color:aliceblue;

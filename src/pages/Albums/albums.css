@@ -1,4 +1,5 @@
 .album{
+
     margin: 0;
     padding: 0;
 }
@@ -9,6 +10,25 @@
     min-height: 80vh;
     height: 100%;
     background: #000000f3;
+}
+
+.lienzoAlbum1{
+
+    flex-direction: row;
+    min-height: 50vh;
+
+    height: 10%;
+    background: #000000f3;
+}
+
+
+.lienzoAlbum1 .centrar{
+
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 10%;
+    min-height: 50vh;
 }
 
 .lienzoAlbum .centrar{
@@ -76,3 +96,5 @@
     justify-content: center;
 
 }
+
+

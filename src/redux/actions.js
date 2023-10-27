@@ -17,8 +17,9 @@ const config = {
     }
 }
 
-const BASE_URL = 'http://192.168.1.131:8080/';
+const BASE_URL = 'http://192.168.1.121:8080/';
 //const BASE_URL = 'http://127.0.0.1:8080/';
+//const BASE_URL = 'http://localhost/';
 /**
  * get a single album
  */
@@ -45,6 +46,7 @@ try{
         temp['imagen_album'] = song.imagen_album;
         temp['numero_track'] = song.numero_track;
         temp['colorAlbum'] = song.colorAlbum;
+        temp['numero_cd'] = song.numero_cd;
 
 
         var json = await JSON.stringify(temp);
@@ -146,6 +148,11 @@ export const registerNewArtist = (nombre_artista,imagen_artista, banner, avatar,
 
         let serverListArtist = [];
         var temp = {};
+
+        //console.log('respuesta ',imagen_artista);
+
+
+
         return async dispatch =>{
         const API_URL = BASE_URL+`music_share/php-rest-api/api/artista/create.php`;
         const results = await axios.post(API_URL,{
@@ -180,6 +187,7 @@ export const registerNewArtist = (nombre_artista,imagen_artista, banner, avatar,
         });
 
         }
+
 
     }catch(e){
     console.log('Ha ocurrido un error al registrar artista '+e.message);

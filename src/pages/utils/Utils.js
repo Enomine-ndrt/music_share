@@ -13,4 +13,13 @@ export async function getColorImage(banner){
     }
   }
 
+export async function deleteAbsolutePath(path,separator){
+    try{
+        var dir = path.split(separator);
+        return dir[1];
+    }catch(e){
+        console.log('Ha ocurrido un error al extraer path ',e.message);
+    }
+}
+
 

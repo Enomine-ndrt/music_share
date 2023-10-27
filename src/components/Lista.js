@@ -53,6 +53,7 @@ var actual = '';
         <TableRow>
           <StyledTableCell>#</StyledTableCell>
           <StyledTableCell align="left">Track</StyledTableCell>
+
         </TableRow>
       </TableHead>
       <TableBody>
@@ -76,6 +77,7 @@ var actual = '';
                   {object.numero_track}
                 </TableCell>
                 <TableCell sx={{color:'#fff'}}  align="left">{object.nombre_cancion}</TableCell>
+
               </TableRow>
               )
             )

@@ -15,9 +15,8 @@
 .lienzoAlbum1{
 
     flex-direction: row;
-    min-height: 50vh;
-
-    height: 10%;
+    height: 30vh;
+    width: 90%;
     background: #000000f3;
 }
 

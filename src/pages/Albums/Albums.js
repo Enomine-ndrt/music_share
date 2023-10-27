@@ -50,8 +50,8 @@ const Albums = () => {
       colorBanner = AllAlbumArtist.header[0].colorBanner;
     }
 
-  //average(banner, { format: 'hex' }).then(color =>console.log('COLORES ',color) );
-  console.log('header ',header);
+  average('img/Brol.jpg', { format: 'hex' }).then(color =>console.log('COLORES ',color) );
+  //console.log('header ',header);
 
   const GetAlbums = () =>{
 

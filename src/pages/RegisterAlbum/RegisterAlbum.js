@@ -5,7 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {getAllArtist,registerNewAlbum} from "../../redux/actions";
 import './regsiterAlbum.css';
 import { useNavigate } from "react-router-dom";
-import { getColorImage} from '../utils/Utils';
+import { getColorImage,deleteAbsolutePath} from '../utils/Utils';
 
 const RegisterAlbum = () => {
     const {Artist,MessageAlbum} = useSelector(state => state.userReducer);
@@ -22,15 +22,20 @@ const RegisterAlbum = () => {
 
 
     const registrarAlbum = async() => {
+        let BASE_URL = "http://192.168.1.121:8080/music_share/music/";
 
         console.log('nombre_album',nombre_album.current.value);
         console.log('id_artista',select);
         console.log('imagen_album',imagen_album.current.value);
-        const color = await getColorImage(imagen_album.current.value);
+        const color = await getColorImage(BASE_URL+imagen_album.current.value);
         console.log('colorAlbum ',color);
 
-        dispatch(registerNewAlbum(nombre_album.current.value,select,imagen_album.current.value,color));
+        var  image_album = await deleteAbsolutePath(BASE_URL+imagen_album.current.value,':8080/');
+
+        dispatch(registerNewAlbum(nombre_album.current.value,select,image_album,color));
         navigate('/');
+
+
 
     }
 
@@ -42,6 +47,8 @@ const RegisterAlbum = () => {
       <div className='lienzo'>
             <div className='formulario'>
                 <h3>Registrar Album</h3><br/>
+                direccion despues de music_share/music/
+                <br/>
                 <div className='nombreAlbum'>
                 Nombre album <br/>
                 <input type="text" ref={nombre_album} placeholder='nombre album' /><br/>

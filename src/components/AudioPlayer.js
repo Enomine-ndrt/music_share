@@ -22,6 +22,7 @@ const AudioPlayer = () => {
   const [timeProgress,setTimeProgress] = useState(0);
   const [duration,setDuration] = useState(0);
   const [trackIndex, setTrackIndex] = useState(0);
+  const [ocultar,setOcultar] = useState(false);
   const location = useLocation();
 
   useEffect(()=>{
@@ -32,7 +33,7 @@ const AudioPlayer = () => {
   Album.map((color)=> {
     var object = JSON.parse(color);
     colorA = object.colorAlbum;
-    //console.log('color album ',object.colorAlbum);
+    //console.log('color album ',object);
   });
 
  // console.log('Album ', Album);
@@ -66,11 +67,20 @@ const AudioPlayer = () => {
               handleNext={handleNext}
               setTrackIndex={setTrackIndex}
               lista={Album}
+              setOcultar={setOcultar}
+              ocultar={ocultar}
               />
     </div>
-    <Lista_albums
-      colorAlbum={colorA}
-    />
+    {
+
+      ocultar ?
+      <Lista_albums
+      colorAlbum={colorA}/>
+      : null
+
+
+    }
+
     <Lista
           lista={Album}
           currentTack={Album[trackIndex]}

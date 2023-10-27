@@ -2,10 +2,11 @@
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
 import { average } from 'color.js';
-
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const DisplayTrack = ({
-  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista, setTrackIndex
+  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista, setTrackIndex,setOcultar,ocultar
 }) => {
 //const [url, seturl] = useState();
 var url;
@@ -14,12 +15,18 @@ var artista;
 var nombre_cancion;
 var nombre_album;
 var numero_track;
+//var ocultar = false;
 
 const onLoadedMetadata = () => {
  // console.log(audioRef.current.duration);
  const seconds = audioRef.current.duration;
  setDuration(seconds);
  progressBarRef.current.max = seconds;
+}
+
+const ocultarElemento = () =>{
+  //console.log('hola elemento');
+  setOcultar(!ocultar);
 }
 
 
@@ -72,6 +79,11 @@ const onLoadedMetadata = () => {
 
 
       </div>
+      {
+        !ocultar ?
+         <AddIcon onClick={ocultarElemento}   htmlColor="white"/>:
+         <RemoveIcon onClick={ocultarElemento}  htmlColor="white"/>
+      }
 
     </div>
   )

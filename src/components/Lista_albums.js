@@ -12,7 +12,7 @@ import { CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {getSingleAlbumFromArtist} from "../redux/actions";
 import { average } from 'color.js';
-import '../pages/Albums/albums.css';
+//import '../pages/Albums/albums.css';
 
 const Lista_albums = ({
   colorAlbum
@@ -50,7 +50,8 @@ const Lista_albums = ({
         <CardActionArea  onClick={(e)=>{handlerCard(al,ind)}}>
           <CardMedia
             component="img"
-            height="200"
+            height="100"
+
             image={al.imagen_album}
             alt="album"
           />

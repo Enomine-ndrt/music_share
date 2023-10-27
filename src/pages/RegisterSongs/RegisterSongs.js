@@ -72,7 +72,7 @@ const RegisterSongs = () => {
       }
 
       console.log('canciones ',listSongs);
-    dispatch(registerSongs(select,selectAlbum,listSongs,dirMusic.current.value));
+    dispatch(registerSongs(select,selectAlbum,listSongs,"music_share/music/"+dirMusic.current.value));
     navigate('/');
     }
 
@@ -107,6 +107,7 @@ const RegisterSongs = () => {
       <div className='lienzo'>
             <div className='formulario'>
                 <h3>Registrar Canciones</h3><br/>
+                    Direccion despues  de music_share/music/
                 <div className='nombreAlbum'>
 
                 </div>

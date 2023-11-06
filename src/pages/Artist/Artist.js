@@ -1,22 +1,25 @@
 import React,{useEffect,useState} from 'react';
 import './artists.css';
 import { useSelector,useDispatch } from 'react-redux';
-import {getAllArtist} from "../../redux/actions";
+import {getAllArtist,getArtistFromGenere} from "../../redux/actions";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import {useLocation} from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
 import Navbar from '../../components/navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const Artist = () => {
-    const {Artist} = useSelector(state => state.userReducer);
+    const {Artist,ArtistGeneres} = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const artist = useLocation();
 
     useEffect(()=>{
-        dispatch(getAllArtist());
+       // dispatch(getAllArtist());
+       dispatch(getArtistFromGenere(artist.state.data));
     },[]);
 
    const handlerCard = (object,ind) =>{
@@ -33,7 +36,8 @@ const Artist = () => {
      <Navbar />
      <div className='lienzo'>
     {
-      Artist.map((element,ind)=>{
+
+      ArtistGeneres.map((element,ind)=>{
 
         var object = JSON.parse(element);
 

@@ -42,7 +42,7 @@ const insertSongs =(e) =>{
        <div className='wrapper'>
           <div className='nombre'>
 
-               <span onClick={(e)=>{handle(e)}} className="logo">Artistas</span>
+               <span onClick={(e)=>{handle(e)}} className="logo">Musica</span>
 
           </div>
 

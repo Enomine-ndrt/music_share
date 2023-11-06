@@ -1,0 +1,17 @@
+.tarjeta2{
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.nombre2{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: #c1b6bc;
+    color:aliceblue;
+}

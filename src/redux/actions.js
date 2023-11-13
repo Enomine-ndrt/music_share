@@ -27,8 +27,7 @@ const BASE_URL = 'http://192.168.1.121:8080/';
  */
 export const getSingleAlbumFromArtist = (id_artista,id_album) => {
 try{
-    let serverAlbumListArtist = [];
-    var temp = {};
+
     return async dispatch =>{
 
     const API_URL = BASE_URL+`music_share/php-rest-api/api/cancion/single_read.php?id_artista=${id_artista}&id_album=${id_album}`;
@@ -39,26 +38,9 @@ try{
         console.log("Ha ocurrido un error al traer albums "+error);
     });
 
-    let res =   await results.data.body.map(async(song)=>{
-
-        temp['url'] = song.url;
-        temp['nombre_cancion'] = song.nombre_cancion;
-        temp['nombre_artista'] = song.nombre_artista;
-        temp['nombre_album'] = song.nombre_album;
-        temp['imagen_album'] = song.imagen_album;
-        temp['numero_track'] = song.numero_track;
-        temp['colorAlbum'] = song.colorAlbum;
-        temp['numero_cd'] = song.numero_cd;
-
-
-        var json = await JSON.stringify(temp);
-        serverAlbumListArtist.push(json);
-        return serverAlbumListArtist;
-    });
-
     await dispatch({
         type: GET_SINGLE_ALBUM_ARTISTA,
-        payload: serverAlbumListArtist
+        payload: results.data
     });
 
     }

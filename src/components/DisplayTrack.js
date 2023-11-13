@@ -6,16 +6,17 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 const DisplayTrack = ({
-  currentTack,audioRef,setDuration,progressBarRef,handleNext,lista, setTrackIndex,setOcultar,ocultar
+  header,currentTack,audioRef,setDuration,progressBarRef,handleNext,setOcultar,ocultar
 }) => {
 //const [url, seturl] = useState();
 var url;
-var imagen;
+var imagen = "";
 var artista;
 var nombre_cancion;
 var nombre_album;
 var numero_track;
 //var ocultar = false;
+
 
 const onLoadedMetadata = () => {
  // console.log(audioRef.current.duration);
@@ -32,17 +33,22 @@ const ocultarElemento = () =>{
 
 
   if(currentTack != null){
-    const object = JSON.parse(currentTack);
-    //console.log('imagem ',object.imagen_album);
 
-      url = object.url;
-      imagen = object.imagen_album;
-      artista = object.nombre_artista;
-      nombre_cancion = object.nombre_cancion;
-      nombre_album = object.nombre_album;
-      numero_track = object.numero_track;
+      url = currentTack.url;
+
+      nombre_cancion = currentTack.nombre_cancion;
+     // nombre_album = object.nombre_album;
+      numero_track = currentTack.numero_track;
 
   }
+
+
+  if(header != null){
+     imagen = header.imagen_album;
+     artista = header.nombre_artista;
+    nombre_album = header.nombre_album;
+  }
+
 
 //average(imagen, { format: 'hex' }).then(color =>console.log('COLORES ALBUM ',color) );
 

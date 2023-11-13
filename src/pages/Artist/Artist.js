@@ -1,7 +1,7 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect} from 'react';
 import './artists.css';
 import { useSelector,useDispatch } from 'react-redux';
-import {getAllArtist,getArtistFromGenere} from "../../redux/actions";
+import {getArtistFromGenere} from "../../redux/actions";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -12,10 +12,12 @@ import Navbar from '../../components/navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 const Artist = () => {
-    const {Artist,ArtistGeneres} = useSelector(state => state.userReducer);
+    const {ArtistGeneres} = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const artist = useLocation();
+
+  console.log('artistas de genero ',artist);
 
     useEffect(()=>{
        // dispatch(getAllArtist());

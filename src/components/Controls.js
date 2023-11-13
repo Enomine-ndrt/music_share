@@ -14,7 +14,7 @@ import{
 
 
 const Controls = ({
-  audioRef,progressBarRef,duration,setTimeProgress,Album,setTrackIndex,trackIndex,handleNext
+  audioRef,progressBarRef,duration,setTimeProgress,setTrackIndex,trackIndex,handleNext
 }) => {
   const [isPlaying,setIsPlaying] = useState(false);
   const playAnimationRef = useRef();
@@ -64,7 +64,7 @@ const Controls = ({
   };
 
   const handlePrevius = () => {
-    console.log('handleNext ',Album);
+   // console.log('handleNext ',Album);
     if(trackIndex == 0){
       setTrackIndex(0);
       //Album[0];

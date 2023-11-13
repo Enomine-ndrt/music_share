@@ -35,13 +35,6 @@ const Albums = () => {
        navigate("/player",{state:{id_artista:object.id_artista,id_album: object.id_album}});
     }
 
-    let  Songs = useMemo(()=>[
-      AllAlbumArtist.body,
-    ],[]);
-
-    let header = useMemo(()=>[
-      AllAlbumArtist.header
-    ],[]);
 
     if(  AllAlbumArtist.header != null){
       nombre = AllAlbumArtist.header[0].nombre_artista;
@@ -50,7 +43,7 @@ const Albums = () => {
       colorBanner = AllAlbumArtist.header[0].colorBanner;
     }
 
-  average('img/Brol.jpg', { format: 'hex' }).then(color =>console.log('COLORES ',color) );
+ // average('img/Brol.jpg', { format: 'hex' }).then(color =>console.log('COLORES ',color) );
   //console.log('header ',header);
 
   const GetAlbums = () =>{

@@ -25,23 +25,44 @@ const AudioPlayer = () => {
   const [ocultar,setOcultar] = useState(false);
   const location = useLocation();
 
+  var imagen = "";
+  var artista = "";
+ var nombre_album = "";
+
+
+ const handleAlbum = () =>{
+
+ }
+
+
   useEffect(()=>{
     dispatch(getSingleAlbumFromArtist(location.state.id_artista,location.state.id_album));
-  },[location]);
+  },[]);
 
   let colorA = '';
-  Album.map((color)=> {
-    var object = JSON.parse(color);
-    colorA = object.colorAlbum;
+
+
+
+if(Album.body != null){
+  Album.header.map((color)=> {
+    //var object = JSON.parse(color);
+   // colorA = object.colorAlbum;
+     //imagen = color.imagen_album;
+     colorA = color.colorAlbum;
+     artista = color.nombre_artista;
+     nombre_album = color.nombre_artista;
     //console.log('color album ',object);
   });
 
- // console.log('Album ', Album);
+}
+
+
+ //console.log('Albumssssssssss ', Album);
 
   const handleNext = () => {
    // console.log('handleNext ',Album);
 
-    if(trackIndex >= Album.length -1){
+    if(trackIndex >= Album.body.length -1){
       setTrackIndex(0);
       console.log('trackIndex');
       //var inss = location.state.id_album+1;
@@ -59,17 +80,19 @@ const AudioPlayer = () => {
 
 
         <div style={{background: `linear-gradient(${colorA},black)`}} className='inner'>
+            {
+              Album.header ?
               <DisplayTrack
-              currentTack={Album[trackIndex]}
+              header={Album.header[0]}
+              currentTack={Album.body[trackIndex]}
               audioRef={audioRef}
               setDuration={setDuration}
               progressBarRef={progressBarRef}
               handleNext={handleNext}
-              setTrackIndex={setTrackIndex}
-              lista={Album}
               setOcultar={setOcultar}
               ocultar={ocultar}
-              />
+              />: null
+            }
     </div>
     {
 
@@ -81,23 +104,29 @@ const AudioPlayer = () => {
 
     }
 
-    <Lista
-          lista={Album}
-          currentTack={Album[trackIndex]}
-          setTrackIndex={setTrackIndex}
-        />
+    {
+     Album.body ?
+      (<Lista
+      lista={Album.body}
+      currentTack={Album.body[trackIndex]}
+      setTrackIndex={setTrackIndex}
+      />):null
+    }
 
 
-    <Controls
+{
+  Album.body ?
+  <Controls
           audioRef={audioRef}
           progressBarRef={progressBarRef}
           duration={duration}
           setTimeProgress={setTimeProgress}
-          Album={Album}
           setTrackIndex={setTrackIndex}
           trackIndex={trackIndex}
           handleNext={handleNext}
-          />
+          />:null
+}
+
           <ProgressBar
           progressBarRef={progressBarRef}
            audioRef={audioRef}

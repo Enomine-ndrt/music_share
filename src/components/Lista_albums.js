@@ -1,5 +1,5 @@
 
-import React,{useEffect,useState,useRef,useMemo} from 'react';
+import React,{useEffect} from 'react';
 
 import {useLocation} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import {getSingleAlbumFromArtist} from "../redux/actions";
-import { average } from 'color.js';
+//import { average } from 'color.js';
 //import '../pages/Albums/albums.css';
 
 const Lista_albums = ({
@@ -20,11 +20,12 @@ const Lista_albums = ({
     const album = useLocation();
     const {AllAlbumArtist} = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+   // const navigate = useNavigate();
+
 
 
     useEffect(() => {
-      dispatch(getAllAlbumsArtist(album.state.data));
+      dispatch(getAllAlbumsArtist(album.state.id_artista));
 }, []);
 
 

@@ -19,8 +19,8 @@ const config = {
     }
 }
 
-const BASE_URL = 'http://192.168.1.121:8080/';
-//const BASE_URL = 'http://127.0.0.1:8080/';
+//const BASE_URL = 'http://192.168.1.121:8080/';
+const BASE_URL = 'http://127.0.0.1:8080/';
 //const BASE_URL = 'http://localhost/';
 /**
  * get a single album

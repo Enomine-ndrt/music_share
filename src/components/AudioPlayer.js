@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect,useRef} from 'react';
+import React, { useState,useEffect,useRef,useMemo} from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
@@ -30,10 +30,6 @@ const AudioPlayer = () => {
  var nombre_album = "";
 
 
- const handleAlbum = () =>{
-
- }
-
 
   useEffect(()=>{
     dispatch(getSingleAlbumFromArtist(location.state.id_artista,location.state.id_album));
@@ -42,31 +38,37 @@ const AudioPlayer = () => {
   let colorA = '';
 
 
+  const Songs =useMemo(()=> Album.body?.map(art => {
+    var temp = {}
+
+    temp['id_cancion'] = art.id_cancion;
+    temp['nombre_cancion'] = art.nombre_cancion;
+    temp['url'] = art.url;
+    temp['numero_cd'] = art.numero_cd;
+    temp['numero_track'] = art.numero_track;
+
+    return (temp)
+  }),[Album.body])
+
 
 if(Album.body != null){
   Album.header.map((color)=> {
-    //var object = JSON.parse(color);
-   // colorA = object.colorAlbum;
-     //imagen = color.imagen_album;
+
      colorA = color.colorAlbum;
      artista = color.nombre_artista;
      nombre_album = color.nombre_artista;
-    //console.log('color album ',object);
+
   });
 
 }
 
 
- //console.log('Albumssssssssss ', Album);
-
   const handleNext = () => {
-   // console.log('handleNext ',Album);
 
     if(trackIndex >= Album.body.length -1){
       setTrackIndex(0);
       console.log('trackIndex');
-      //var inss = location.state.id_album+1;
-     // dispatch(getSingleAlbumFromArtist(location.state.id_artista,inss));
+
     }else{
       setTrackIndex((prev) => prev + 1);
     }
@@ -84,7 +86,7 @@ if(Album.body != null){
               Album.header ?
               <DisplayTrack
               header={Album.header[0]}
-              currentTack={Album.body[trackIndex]}
+              currentTack={Songs[trackIndex]}
               audioRef={audioRef}
               setDuration={setDuration}
               progressBarRef={progressBarRef}
@@ -105,10 +107,10 @@ if(Album.body != null){
     }
 
     {
-     Album.body ?
+     Songs ?
       (<Lista
-      lista={Album.body}
-      currentTack={Album.body[trackIndex]}
+      lista={Songs}
+      currentTack={Songs[trackIndex]}
       setTrackIndex={setTrackIndex}
       />):null
     }
@@ -134,8 +136,6 @@ if(Album.body != null){
            duration={duration}
            />
         </div>
-
-
     </>
   );
 }

@@ -1,7 +1,6 @@
 
 import React,{useState} from 'react';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
-import { average } from 'color.js';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
@@ -35,11 +34,9 @@ const ocultarElemento = () =>{
   if(currentTack != null){
 
       url = currentTack.url;
-
       nombre_cancion = currentTack.nombre_cancion;
-     // nombre_album = object.nombre_album;
       numero_track = currentTack.numero_track;
-
+     // console.log('track ', currentTack.numero_track);
   }
 
 

@@ -41,7 +41,7 @@ var actual = '';
       }
 
       const Handle = (e,i) => {
-        console.log('message ',i);
+       // console.log('message ',i);
         setTrackIndex(i-1);
       }
 

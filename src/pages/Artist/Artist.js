@@ -17,7 +17,7 @@ const Artist = () => {
     const navigate = useNavigate();
     const artist = useLocation();
 
-  console.log('artistas de genero ',artist);
+
 
     useEffect(()=>{
        // dispatch(getAllArtist());

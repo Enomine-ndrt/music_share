@@ -107,7 +107,7 @@ export const getAllAlbumsArtist = (id) =>{
         return async dispatch =>{
         const API_URL = BASE_URL+`music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
         const results = await axios.get(API_URL,config).then(async function (response) {
-            console.log('respoinse ',response);
+            //console.log('respoinse ',response);
             return response;
         }).catch(function(error){
             console.log("Ha ocurrido un error al traer artistas "+error);

@@ -31,7 +31,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-const Lista = ({lista,currentTack, setTrackIndex}) => {
+const Lista = ({listas,currentTack, setTrackIndex}) => {
 
 var actual = '';
 
@@ -57,7 +57,7 @@ var actual = '';
         </TableRow>
       </TableHead>
       <TableBody>
-        {lista.map((row) => {
+        {listas.map((row) => {
           // const object = JSON.parse(row)
             return(
               actual == row.nombre_cancion ?(

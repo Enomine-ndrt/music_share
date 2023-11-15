@@ -25,11 +25,6 @@ const AudioPlayer = () => {
   const [ocultar,setOcultar] = useState(false);
   const location = useLocation();
 
-  var imagen = "";
-  var artista = "";
- var nombre_album = "";
-
-
 
   useEffect(()=>{
     dispatch(getSingleAlbumFromArtist(location.state.id_artista,location.state.id_album));
@@ -48,17 +43,24 @@ const AudioPlayer = () => {
     temp['numero_track'] = art.numero_track;
 
     return (temp)
-  }),[Album.body])
+  }),[Album.body]);
+
+const Headers = useMemo(()=>Album.header?.map(art =>{
+  var temp = {}
+
+  temp['nombre_artista'] = art.nombre_artista;
+  temp['imagen_album'] = art.imagen_album;
+  temp['url'] = art.url;
+  temp['nombre_album'] = art.nombre_album;
+  temp['colorAlbum'] = art.colorAlbum;
+  return (temp)
+}),[Album.header]);
+
 
 
 if(Album.body != null){
-  Album.header.map((color)=> {
 
-     colorA = color.colorAlbum;
-     artista = color.nombre_artista;
-     nombre_album = color.nombre_artista;
-
-  });
+  colorA =  Headers[0].colorAlbum;
 
 }
 
@@ -85,7 +87,7 @@ if(Album.body != null){
             {
               Album.header ?
               <DisplayTrack
-              header={Album.header[0]}
+              header={Headers[0]}
               currentTack={Songs[trackIndex]}
               audioRef={audioRef}
               setDuration={setDuration}
@@ -109,7 +111,7 @@ if(Album.body != null){
     {
      Songs ?
       (<Lista
-      lista={Songs}
+      listas={Songs}
       currentTack={Songs[trackIndex]}
       setTrackIndex={setTrackIndex}
       />):null

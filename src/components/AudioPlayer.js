@@ -8,7 +8,6 @@ import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Lista from './Lista';
-import Equalizer from './Equalizer';
 
 import Lista_albums from './Lista_albums';
 

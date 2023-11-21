@@ -20,10 +20,7 @@ const Albums = () => {
     const {AllAlbumArtist} = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    let avatar = "";
-    let nombre = "";
-    let banner = "";
-    let colorBanner = "";
+
 
     useEffect(() => {
       dispatch(getAllAlbumsArtist(album.state.data));
@@ -36,12 +33,28 @@ const Albums = () => {
     }
 
 
-    if(  AllAlbumArtist.header != null){
-      nombre = AllAlbumArtist.header[0].nombre_artista;
-      avatar = AllAlbumArtist.header[0].avatar;
-      banner  = AllAlbumArtist.header[0].banner;
-      colorBanner = AllAlbumArtist.header[0].colorBanner;
-    }
+    const Headers = useMemo(()=> AllAlbumArtist.header?.map(header =>{
+        var temp = {};
+        temp = [];
+
+        temp['nombre_artista'] = header.nombre_artista;
+        temp['avatar'] = header.avatar;
+        temp['banner'] = header.banner;
+        temp['colorBanner'] = header.colorBanner;
+        return (temp);
+    }),[AllAlbumArtist.header])
+
+
+    const Albumss =useMemo(()=> AllAlbumArtist.body?.map(art => {
+      var temp = {}
+       temp = [];
+      temp['id_album'] = art.id_album;
+      temp['nombre_album'] = art.nombre_album;
+      temp['id_artista'] = art.id_artista;
+      temp['imagen_album'] = art.imagen_album;
+      return (temp)
+    }),[AllAlbumArtist.body]);
+
 
  // average('img/Brol.jpg', { format: 'hex' }).then(color =>console.log('COLORES ',color) );
   //console.log('header ',header);
@@ -53,7 +66,7 @@ const Albums = () => {
     return(
       <>
       {
-         AllAlbumArtist.body.map((al,ind)=>{
+         Albumss.map((al,ind)=>{
           return(
       <div className='tarjeta'>
       <Card sx={{ maxWidth: 250 }} >
@@ -87,11 +100,14 @@ const Albums = () => {
   };
 
 
-  return (
-    <div className='album' >
-    <Navbar />
-    <div
-      style={{backgroundColor: colorBanner}}
+  const GetHeader = () =>{
+   if (AllAlbumArtist.body != null){
+     // colorBanner = Headers[0].colorBanner;
+    return(<>
+    {<>
+
+          <div
+      style={{backgroundColor: Headers[0].colorBanner}}
     className="profileRight">
     <div className="profileRightTop">
     <div
@@ -100,26 +116,46 @@ const Albums = () => {
       <img
       id='banner'
        className="profileCoverImg"
-       src={banner} alt="" />
+       src={Headers[0].banner} alt="" />
       <img
       style={{border: `3px solid #fff`}}
       className="profileUserImg"
-      src={avatar} alt="" />
+      src={Headers[0].avatar} alt="" />
     </div>
           <div className="profileInfo">
-                    <h4 className="profileInfoName">{nombre}</h4>
+                    <h4 className="profileInfoName">{Headers[0].nombre}</h4>
                     <span className="profileInfoDesc">{'ALBUMS'}</span>
             </div>
     </div>
     </div>
+    <div style={{background: `linear-gradient(${Headers[0].colorBanner},black)`}} className='lienzoAlbum'>
 
-    <div style={{background: `linear-gradient(${colorBanner},black)`}} className='lienzoAlbum'>
+<div className='centrar' >
+ <GetAlbums />
+ </div>
+ </div>
 
-      <div className='centrar' >
-  { <GetAlbums /> }
+
+    </>
+   }
+      </>
+      );
+   }else{
+    return(<h1>No albums</h1>)
+   }
+
+
+  };
+
+  return (
+    <div className='album' >
+    <Navbar />
+
+   <GetHeader />
+
+
    </div>
-   </div>
-   </div>
+
   )
 }
 

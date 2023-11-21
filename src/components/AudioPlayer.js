@@ -8,6 +8,7 @@ import {getSingleAlbumFromArtist} from "../redux/actions";
 import {useLocation} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Lista from './Lista';
+import Equalizer from './Equalizer';
 
 import Lista_albums from './Lista_albums';
 
@@ -24,6 +25,8 @@ const AudioPlayer = () => {
   const [trackIndex, setTrackIndex] = useState(0);
   const [ocultar,setOcultar] = useState(false);
   const location = useLocation();
+  const [frecuencias, setFrecuencias] = useState([60, 150, 400, 1000, 3000, 8000]); // Frecuencias deseadas
+
 
 
   useEffect(()=>{
@@ -98,6 +101,8 @@ if(Album.body != null){
               />: null
             }
     </div>
+
+
     {
 
       ocultar ?

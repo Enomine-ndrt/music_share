@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useMemo} from 'react';
 import './artists.css';
 import { useSelector,useDispatch } from 'react-redux';
 import {getArtistFromGenere} from "../../redux/actions";
@@ -18,19 +18,68 @@ const Artist = () => {
     const artist = useLocation();
 
 
-
     useEffect(()=>{
-       // dispatch(getAllArtist());
        dispatch(getArtistFromGenere(artist.state.data));
     },[]);
 
+
+
+    const Artists =useMemo(()=> ArtistGeneres.body?.map(art => {
+      var temp = {}
+       temp = [];
+      temp['id_genero'] = art.id_genero;
+      temp['id_artista'] = art.id_artista;
+      temp['nombre_artista'] = art.nombre_artista;
+      temp['imagen_artista'] = art.imagen_artista;
+      return (temp)
+    }),[ArtistGeneres.body]);
+
+
    const handlerCard = (object,ind) =>{
 
-
       navigate("/albums",{state:{data: object.id_artista}});
-      //console.log('index ',object.nombre_artista);
    }
 
+
+   const GetArtists = () =>{
+
+    if(ArtistGeneres.body != null){
+      return(<>
+        {
+         Artists.map((element,ind)=>{
+            return(
+        <div className='tarjeta'>
+        <Card  sx={{ maxWidth: 345 }} >
+          <CardActionArea  onClick={(e)=>{handlerCard(element,ind)}}>
+            <CardMedia
+              component="img"
+              height="300"
+              image={element.imagen_artista}
+              alt="imagen artista"
+            />
+            <CardContent>
+
+              <Typography gutterBottom variant="h5" component="div">
+              <div className='nombre'>
+                {element.nombre_artista}
+                </div>
+              </Typography>
+
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        </div>
+            )
+          })
+        }
+        </>
+        );
+    }else{
+      return(<h1>No Artists</h1>)
+    }
+
+
+   };
 
 
   return (
@@ -38,36 +87,7 @@ const Artist = () => {
      <Navbar />
      <div className='lienzo'>
     {
-
-      ArtistGeneres.map((element,ind)=>{
-
-        var object = JSON.parse(element);
-
-        return(
-    <div className='tarjeta'>
-    <Card  sx={{ maxWidth: 345 }} >
-      <CardActionArea  onClick={(e)=>{handlerCard(object,ind)}}>
-        <CardMedia
-          component="img"
-          height="300"
-          image={object.imagen_artista}
-          alt="green iguana"
-        />
-        <CardContent>
-
-          <Typography gutterBottom variant="h5" component="div">
-          <div className='nombre'>
-            {object.nombre_artista}
-            </div>
-          </Typography>
-
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </div>
-        )
-      })
-
+     <GetArtists />
     }
     </div>
     </div>

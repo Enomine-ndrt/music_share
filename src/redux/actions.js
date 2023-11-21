@@ -105,9 +105,10 @@ export const getAllAlbumsArtist = (id) =>{
     try{
 
         return async dispatch =>{
+
         const API_URL = BASE_URL+`music_share/php-rest-api/api/album/single_read.php?id_artista=${id}`;
         const results = await axios.get(API_URL,config).then(async function (response) {
-            //console.log('respoinse ',response);
+
             return response;
         }).catch(function(error){
             console.log("Ha ocurrido un error al traer artistas "+error);
@@ -314,10 +315,6 @@ export const registerSongs = (id_artista,id_album,file,direccion) =>{
 export const getArtistFromGenere = (id_genero) => {
     try{
 
-        let serverAlbumListArtist = [];
-        var temp = {};
-
-
         return async dispatch =>{
 
             const API_URL = BASE_URL+`music_share/php-rest-api/api/genero/ReadArtist.php?id_generos=${id_genero}`;
@@ -328,23 +325,9 @@ export const getArtistFromGenere = (id_genero) => {
                 console.log("Ha ocurrido un error al traer albums "+error);
             });
 
-              await results.data.body.map(async(song)=>{
-
-                temp['id_genero'] = song.id_genero;
-                temp['id_artista'] = song.id_artista;
-                temp['nombre_artista'] = song.nombre_artista;
-                temp['imagen_artista'] = song.imagen_artista;
-
-                var json = await JSON.stringify(temp);
-                serverAlbumListArtist.push(json);
-                return serverAlbumListArtist;
-            });
-
-      //  console.log('response ',results);
-
         await dispatch({
             type: GET_ALL_ARTIST_FROM_GENERES,
-            payload: serverAlbumListArtist
+            payload: results.data
         });
 
         }

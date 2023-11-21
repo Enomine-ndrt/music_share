@@ -26,7 +26,6 @@ const Genere = () => {
 
    const handleCard = (object,ind) => {
     navigate("/artistas",{state:{data: object.id_generos}});
-      console.log('id genero ',object.id_generos);
    }
 
 

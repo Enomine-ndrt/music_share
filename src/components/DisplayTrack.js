@@ -51,12 +51,16 @@ const ocultarElemento = () =>{
 
   return (
     <div>
+
       <audio
+      id="audios"
       src={url}
       ref={audioRef}
+      crossorigin="anonymous"
       onLoadedMetadata={onLoadedMetadata}
       onEnded={handleNext}
       />
+
       <div className='audio-info'>
           <div className='audio-image'>
               {

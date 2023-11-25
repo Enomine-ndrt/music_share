@@ -35,6 +35,7 @@ const AudioPlayer = () => {
   let colorA = '';
 
 
+  //lista de canciones
   const Songs =useMemo(()=> Album.body?.map(art => {
     var temp = {}
 
@@ -47,9 +48,9 @@ const AudioPlayer = () => {
     return (temp)
   }),[Album.body]);
 
+  //cabecera con informacion
 const Headers = useMemo(()=>Album.header?.map(art =>{
   var temp = {}
-
   temp['nombre_artista'] = art.nombre_artista;
   temp['imagen_album'] = art.imagen_album;
   temp['url'] = art.url;

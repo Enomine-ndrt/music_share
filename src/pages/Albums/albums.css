@@ -13,10 +13,16 @@
 }
 
 .lienzoAlbum1{
-
-    flex-direction: row;
+    padding: 5px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
     height: 30vh;
-    width: 90%;
+
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+
     background: #000000f3;
 }
 
@@ -24,10 +30,10 @@
 .lienzoAlbum1 .centrar{
 
     display: flex;
-    flex-direction: row;
+    flex-direction: wrap;
     margin: 0 auto;
-    width: 10%;
-    min-height: 50vh;
+    width: 20%;
+    min-height: 90vh;
 }
 
 .lienzoAlbum .centrar{

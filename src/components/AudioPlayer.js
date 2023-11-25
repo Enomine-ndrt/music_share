@@ -80,7 +80,7 @@ if(Album.body != null){
   };
 
   return (
-      <>
+      <div class='reproductor'>
       <Navbar />
     <div className='audio-player'>
 
@@ -142,7 +142,7 @@ if(Album.body != null){
            duration={duration}
            />
         </div>
-    </>
+    </div>
   );
 }
 

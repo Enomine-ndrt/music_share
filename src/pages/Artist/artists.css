@@ -1,11 +1,22 @@
-.artistas{
+.artistas {
     margin: 0;
     padding: 0;
 
 }
 
-.lienzo{
-    padding: 20px;
+.titl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000e5;
+    color: #fff;
+    font-weight: 100;
+    font-size: 32px;
+    font-family: sans-serif;
+}
+
+.lienzo {
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     min-height: 93vh;
@@ -15,16 +26,17 @@
     align-items: center;
 }
 
-.tarjeta{
+.tarjeta {
     margin-top: 5px;
     margin-left: 10px;
     width: 300px;
     justify-content: center;
     align-items: center;
+
 }
 
 
-.tarjeta1{
+.tarjeta1 {
     margin-top: 5px;
     margin-left: 10px;
     width: 300px;
@@ -34,15 +46,15 @@
 
 .tarjeta1 :hover {
     background-color: rgb(115, 113, 119);
-    color:aliceblue;
+    color: aliceblue;
 }
 
 .tarjeta :hover {
     background-color: rgb(115, 113, 119);
-    color:aliceblue;
+    color: aliceblue;
 }
 
-.nombre{
+.nombre {
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -51,16 +63,17 @@
 
 
 @media (max-width: 500px) and (min-width: 280px) {
-        .tarjeta{
-            width: 100%;
-            padding: 10%;
-        }
-        .tarjeta1{
-            width: 100%;
-            height: 50%;
-            padding: 10%;
-        }
-
-
-
+    .tarjeta {
+        width: 100%;
+        padding: 10%;
     }
+
+    .tarjeta1 {
+        width: 100%;
+        height: 50%;
+        padding: 10%;
+    }
+
+
+
+}

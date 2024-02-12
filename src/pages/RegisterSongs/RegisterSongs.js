@@ -34,12 +34,6 @@ const RegisterSongs = () => {
 
     const registrarCanciones = async () => {
 
-        //console.log('id_artista ', select);
-        // console.log('id_album ', selectAlbum);
-        // console.log('dirMusic ', dirMusic.current.value);
-        // console.log('separate ', separate);
-
-
         if (file) {
             const data = new FormData();
             const fileName = Date.now() + file.name;

@@ -3,6 +3,7 @@ import Navbar from '../../components/navbar/Navbar';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllAlbumsArtist, getAllArtist, registerNewAlbum, updateArtistBA } from "../../redux/actions";
 import { getColorImage, deleteAbsolutePath } from '../utils/Utils';
+import { getStorage } from '../../components/CustomHooks/useLocalStorage';
 import './updateArtist.css';
 
 const UpdateArtist = () => {
@@ -13,8 +14,7 @@ const UpdateArtist = () => {
     const Avatar = useRef();
     const Banner = useRef();
     const Banner2 = useRef();
-
-
+    const url = JSON.parse(getStorage("url"));
 
     useEffect(() => {
         dispatch(getAllArtist());
@@ -81,7 +81,7 @@ const UpdateArtist = () => {
 
 
     const Modificar = async () => {
-        let BASE_URL = "http://192.168.1.121:8080/";
+        let BASE_URL = url;
 
         var bannerPath = await deleteAbsolutePath(Banner.current.value, ':8080/');
         var avatarPath = await deleteAbsolutePath(Avatar.current.value, ':8080/');
@@ -89,22 +89,8 @@ const UpdateArtist = () => {
         const color = await getColorImage(BASE_URL + bannerPath2);
 
         if (Banner2.current.value !== "") {
-
-            /*
-            console.log(
-                'select ', select,
-                ' Avatar ', avatarPath,
-                ' Banner ', bannerPath,
-                ' Banner2 ', bannerPath2,
-                ' color ', color);
-                */
-
             dispatch(updateArtistBA(bannerPath2, avatarPath, color, select));
         }
-
-
-
-
     }
 
 

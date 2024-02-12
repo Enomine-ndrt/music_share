@@ -6,6 +6,7 @@ import { getAllArtist, registerNewAlbum } from "../../redux/actions";
 import './regsiterAlbum.css';
 import { useNavigate } from "react-router-dom";
 import { getColorImage, deleteAbsolutePath } from '../utils/Utils';
+import { getStorage } from '../../components/CustomHooks/useLocalStorage';
 
 const RegisterAlbum = () => {
     const { Artist, MessageAlbum } = useSelector(state => state.userReducer);
@@ -13,6 +14,7 @@ const RegisterAlbum = () => {
     const dispatch = useDispatch();
     const nombre_album = useRef();
     const imagen_album = useRef();
+    const url = JSON.parse(getStorage("url"));
 
     let navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const RegisterAlbum = () => {
 
 
     const registrarAlbum = async () => {
-        let BASE_URL = "http://192.168.1.121:8080/music_share/music/";
+        let BASE_URL = url + "music_share/music/";
 
         const color = await getColorImage(BASE_URL + imagen_album.current.value);
         var image_album = await deleteAbsolutePath(BASE_URL + imagen_album.current.value, ':8080/');

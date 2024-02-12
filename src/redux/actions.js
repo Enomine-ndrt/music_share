@@ -24,7 +24,6 @@ const config = {
 
 /**urls */
 const url = JSON.parse(getStorage("url"));
-
 //const BASE_URL = 'http://192.168.1.121:8080/';
 const BASE_URL = url;
 

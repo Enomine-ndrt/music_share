@@ -24,7 +24,6 @@ const Albums = () => {
 
   useEffect(() => {
     dispatch(getAllAlbumsArtist(album.state.data));
-
   }, []);
 
 
@@ -57,7 +56,6 @@ const Albums = () => {
 
 
   // average('img/ALBINO.jpg', { format: 'hex' }).then(color => console.log('COLORES ', color));
-  //console.log('header ',header);
 
   const GetAlbums = () => {
 
@@ -88,7 +86,6 @@ const Albums = () => {
                   </Card>
                 </div>
               )
-
             })
           }
         </>
@@ -129,14 +126,10 @@ const Albums = () => {
             </div>
           </div>
           <div style={{ background: `linear-gradient(${Headers[0].colorBanner},black)` }} className='lienzoAlbum'>
-
             <div className='centrar' >
-
               <GetAlbums />
             </div>
           </div>
-
-
         </>
         }
       </>
@@ -144,8 +137,6 @@ const Albums = () => {
     } else {
       return (<h1>No albums</h1>)
     }
-
-
   };
 
   return (

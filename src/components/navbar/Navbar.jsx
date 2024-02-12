@@ -7,7 +7,8 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import {Link} from 'react-router-dom';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { slide as Menu } from 'react-burger-menu'
 //import {useHref} from "react-router";
@@ -17,53 +18,66 @@ const Navbar = () => {
   //const history = useHref();
   let navigate = useNavigate();
 
-  const handle = (e) =>{
+  const handle = (e) => {
     e.preventDefault();
     navigate('/');
   }
 
-const createArtist =(e) =>{
-  e.preventDefault();
-  navigate('/Register');
-}
+  const createArtist = (e) => {
+    e.preventDefault();
+    navigate('/Register');
+  }
 
-const createAlbum =(e) =>{
-  e.preventDefault();
-  navigate('/RegisterAlbum');
-}
+  const createAlbum = (e) => {
+    e.preventDefault();
+    navigate('/RegisterAlbum');
+  }
 
-const insertSongs =(e) =>{
-  e.preventDefault();
-  navigate('/RegisterSongs');
-}
+  const insertSongs = (e) => {
+    e.preventDefault();
+    navigate('/RegisterSongs');
+  }
+
+  const Configure = (e) => {
+    e.preventDefault();
+    navigate('/PathUrl');
+  };
 
   return (
     <div className='navbar'>
-       <div className='wrapper'>
-          <div className='nombre'>
+      <div className='wrapper'>
+        <div className='nombre'>
 
-               <span onClick={(e)=>{handle(e)}} className="logo">Musica</span>
+          <span onClick={(e) => { handle(e) }} className="logo">Musica</span>
 
+        </div>
+        <div className='items'>
+
+          <div className='item'>
+
+            <SettingsIcon
+              onClick={(e) => { Configure(e) }}
+            />
+          </div>
+
+          <div className='item'>
+
+            <ListOutlinedIcon
+              className='icon'
+            />
+
+            <Menu>
+
+              <a onClick={(e) => { createArtist(e) }} href="#">Registrar Artista</a>
+              <a onClick={(e) => { createAlbum(e) }} href="#">Registrar Album</a>
+              <a onClick={(e) => { insertSongs(e) }} href="#">Registrar Songs</a>
+
+            </Menu>
           </div>
 
 
-          <div className='items'>
-
-
-              <div className='item'>
-              <ListOutlinedIcon className='icon'/>
-               <Menu>
-
-                  <a onClick={(e)=>{createArtist(e)}} href="#">Registrar Artista</a>
-                  <a onClick={(e)=>{createAlbum(e)}} href="#">Registrar Album</a>
-                  <a onClick={(e)=>{insertSongs(e)}} href="#">Registrar Songs</a>
-
-                  </Menu>
-              </div>
-
-
-          </div>
-       </div>
+        </div>
+      </div>
     </div>
   )
 }

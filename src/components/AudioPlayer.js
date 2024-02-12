@@ -12,7 +12,6 @@ import Lista from './Lista';
 import Lista_albums from './Lista_albums';
 
 
-
 const AudioPlayer = () => {
 
   const { Album } = useSelector(state => state.userReducer);
